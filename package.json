@@ -1,7 +1,12 @@
 {
   "license": "ISC",
+  "engines": {
+    "node": "16.14.0"
+  },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js",
+    "test": "nodemon index.js"
+    
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
