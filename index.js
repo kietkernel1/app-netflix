@@ -13,7 +13,7 @@ const cors = require("cors");
 
 dotenv.config();
 
-app.use(cors({credentials: true, origin: ["http://localhost:4000","http://localhost:3000"]}));
+app.use(cors({credentials: true, origin: ["https://client-netflix-8aaujho2e-kietkernel1.vercel.app","https://admin-netflix-kietkernel1.vercel.app/"]}));
 app.use(cookieParser())
 
 app.use(express.json())
