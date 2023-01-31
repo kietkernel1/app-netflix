@@ -12,8 +12,9 @@ const cookieParser = require("cookie-parser")
 const cors = require("cors");
 
 dotenv.config();
-// ["https://admin-netflix.vercel.app","https://client-netflix.vercel.app"]
-app.use(cors({credentials: true, origin: "*"}));
+// ["http://localhost:4000", "http://localhost:3000"]
+
+app.use(cors({credentials: true, origin:["https://admin-netflix.vercel.app","https://client-netflix.vercel.app"]}));
 
 
 
