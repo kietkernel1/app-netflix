@@ -65,7 +65,7 @@ router.get("/", verifyToken, async (req, res)=>{
         }else{
             
             list= await List.aggregate([
-                {$sample: {size: 2}}
+                {$sample: {size: 5}}
             ])
 
         }

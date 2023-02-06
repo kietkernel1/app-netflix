@@ -46,10 +46,7 @@ router.delete("/delete/:id", verifyToken, async (req, res)=>{
 })
 
 router.get("/find/:id", verifyToken, async (req, res)=>{
-    if(!req.user.isAdmin){
-        res.status(401).json("You not allow to get this movie")
-        return;
-    }
+    
     try{
         const movie= await Movie.findById(req.params.id);
         res.status(200).json(movie);
@@ -59,13 +56,10 @@ router.get("/find/:id", verifyToken, async (req, res)=>{
 })
 
 router.get("/random", verifyToken, async (req, res)=>{
-    if(!req.user.isAdmin){
-        res.status(401).json("You not allow to update movie")
-        return;
-    }
+    
     const type= req.query.type;
     try{
-        if(type === "series"){
+        if(type === "Series"){
             const movie = await Movie.aggregate([
                 {$match:{isSeries: true}},
                 {$sample: {size: 1}}
