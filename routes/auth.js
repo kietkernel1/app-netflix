@@ -19,9 +19,9 @@ router.post("/register", async (req, res)=>{
         avatar: req.body.avatar
     })
     try{
-    await newUser.save();
-    
-    res.status(201).json("success");
+        await newUser.save();
+        
+        res.status(201).json("success");
     }catch(err){
         console.log(err)
         res.status(400).json(err);
@@ -139,8 +139,9 @@ router.get("/refreshToken", async (req, res) =>{
     const accessToken= jwt.sign(
         {id: existToken.idUser, isAdmin: existToken.isAdmin},
         process.env.KEY_ACCESS_TOKEN,
-        {expiresIn: "0.5h"});
-        console.log(accessToken)
+        {expiresIn: "0.5h"}
+        );
+
     res.cookie("refreshToken", refreshToken, {
         expires: new Date(Date.now()+3*24*60*60),
         httpOnly: true,
